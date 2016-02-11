@@ -27,6 +27,12 @@ function addProjectDetails(e) {
 	var idNumber = projectID.substr('project'.length);
 
 	console.log("User clicked on project " + idNumber);
+
+	$.get("/project/"+idNumber, function(result){
+		console.log(result);
+		console.log($("#project"+result.id).find(".details"));
+		$("#project"+result.id).find(".details").html(result.summary);
+	});
 }
 
 /*
@@ -35,4 +41,12 @@ function addProjectDetails(e) {
  */
 function randomizeColors(e) {
 	console.log("User clicked on color button");
+	$.get("/palette", function(result){
+		console.log(result);
+		$('body').css('background-color', result.colors.hex[0]);
+		$('.thumbnail').css('background-color',  result.colors.hex[1]);
+		$('h1, h2, h3, h4, h5, h5').css('color',  result.colors.hex[2]);
+		$('p').css('color',  result.colors.hex[3]);
+		$('.project img').css('opacity', .75);
+	});
 }
