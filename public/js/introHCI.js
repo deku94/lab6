@@ -9,9 +9,12 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-	$('.project a').click(addProjectDetails);
+        $("#logo").fadeIn(1500);
+        $("#inspire").delay(500).fadeIn(2000);
+        $("#healthy").delay(1000).fadeIn(2000);
+        $("#habits").delay(1500).fadeIn(2000);
+        $("#coming").delay(2000).fadeIn(5000);
 
-	$('#colorBtn').click(randomizeColors);
 }
 
 /*
